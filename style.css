@@ -1,0 +1,133 @@
+/* style.css */
+:root {
+    --maroon: #800000;
+    --gold: #D4AF37;
+    --saffron: #FF9933;
+    --cream: #FFF5E1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Hind Siliguri', sans-serif;
+    background-color: var(--cream);
+    color: var(--maroon);
+    overflow-x: hidden;
+}
+
+/* Background Animation */
+#petal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.petal {
+    position: absolute;
+    background: var(--saffron);
+    border-radius: 50% 0 50% 0;
+    opacity: 0.6;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* Sections */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle, #600000 0%, #300000 100%);
+    color: var(--gold);
+    padding: 20px;
+}
+
+.symbol { font-size: 2rem; display: block; margin-bottom: 10px; }
+.couple-names { font-size: 2.5rem; margin: 15px 0; border-bottom: 2px solid var(--gold); }
+.years { font-size: 1.2rem; font-style: italic; }
+
+.section {
+    padding: 80px 25px;
+    text-align: center;
+    position: relative;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '◈';
+    display: block;
+    font-size: 1rem;
+    color: var(--saffron);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--gold);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.signature {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    color: var(--saffron);
+}
+
+/* Surprise Button */
+.gold-btn {
+    background: var(--gold);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    transition: 0.3s;
+}
+
+.gold-btn:hover { transform: scale(1.05); }
+
+.hidden { display: none; }
+
+.reveal-box {
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px dashed var(--gold);
+    animation: zoomIn 0.5s ease-out;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.diya { font-size: 3rem; margin-top: 15px; animation: flicker 1s infinite alternate; }
+
+@keyframes flicker {
+    from { opacity: 0.8; }
+    to { opacity: 1; filter: drop-shadow(0 0 10px orange); }
+}
